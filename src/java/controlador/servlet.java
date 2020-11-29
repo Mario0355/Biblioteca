@@ -97,13 +97,11 @@ public class servlet extends HttpServlet {
             int precio = Integer.parseInt(request.getParameter("precio"));
             String descripcion = request.getParameter("descripcion");
             String categoria = request.getParameter("categoria");
-            String ubicacion = request.getParameter("ubicacion");
             producto.setNombre(nombre);
             producto.setCantidad(cantidad);
             producto.setPrecio(precio);
             producto.setDescripcionProducto(descripcion);
             producto.setCategoria(categoria);
-            producto.setUbicacion(ubicacion);
             controlDao.nuevoProducto(producto);
             acceso = observar;
         }else if(action.equalsIgnoreCase("editar")){
@@ -116,14 +114,12 @@ public class servlet extends HttpServlet {
             int precio = Integer.parseInt(request.getParameter("precio"));
             String descripcion = request.getParameter("descripcion");
             String categoria = request.getParameter("categoria");
-            String ubicacion = request.getParameter("ubicacion");
             producto.setCodigo(codigo);
             producto.setNombre(nombre);
             producto.setCantidad(cantidad);
             producto.setPrecio(precio);
             producto.setDescripcionProducto(descripcion);
             producto.setCategoria(categoria);
-            producto.setUbicacion(ubicacion);
             controlDao.editarProducto(producto);
             acceso = observar;
         }else if(action.equalsIgnoreCase("eliminar")){

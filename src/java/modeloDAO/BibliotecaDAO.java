@@ -47,7 +47,6 @@ public class BibliotecaDAO implements CRUD{
                 producto.setPrecio(result.getInt("precio"));
                 producto.setDescripcionProducto(result.getString("descripcionProducto"));
                 producto.setCategoria(result.getString("categoria"));
-                producto.setUbicacion(result.getString("ubicacion"));
                 list.add(producto);
                 System.out.println("Lista de los productos exitosa");
             }
@@ -71,7 +70,6 @@ public class BibliotecaDAO implements CRUD{
                 producto.setPrecio(result.getInt("precio"));
                 producto.setDescripcionProducto(result.getString("descripcionProducto"));
                 producto.setCategoria(result.getString("categoria"));
-                producto.setUbicacion(result.getString("ubicacion"));
             }
             System.out.println("Producto en especifico exitoso");
         } catch (Exception e) {
@@ -82,8 +80,8 @@ public class BibliotecaDAO implements CRUD{
 
     @Override
     public boolean nuevoProducto(productos producto) {
-        String sql = "insert into productos (nombre,cantidad,precio,descripcionProducto,categoria,ubicacion) values ('"+ producto.getNombre() +"',"
-                + "'"+ producto.getCantidad()+"', '"+ producto.getPrecio()+"', '"+ producto.getDescripcionProducto()+"', '"+ producto.getCategoria() + "', '" + producto.getUbicacion()+ "')";
+        String sql = "insert into productos (nombre,cantidad,precio,descripcionProducto,categoria) values ('"+ producto.getNombre() +"',"
+                + "'"+ producto.getCantidad()+"', '"+ producto.getPrecio()+"', '"+ producto.getDescripcionProducto()+"', '"+ producto.getCategoria() +  "')";
         try{
             conexion = conexionBD.getConexion();
             preparedStatement = conexion.prepareStatement(sql);
@@ -98,7 +96,7 @@ public class BibliotecaDAO implements CRUD{
     @Override
     public boolean editarProducto(productos producto) {
         String sql = "update productos set nombre='"+ producto.getNombre() +"', cantidad='"+ producto.getCantidad()+"', precio='"+ producto.getPrecio()+
-                "',descripcionProducto='"+ producto.getDescripcionProducto()+"',categoria= '"+ producto.getCategoria() +"',ubicacion= '"+ producto.getUbicacion() +"' where codigo=" + producto.getCodigo();
+                "',descripcionProducto='"+ producto.getDescripcionProducto()+"',categoria= '"+ producto.getCategoria() +"' where codigo=" + producto.getCodigo();
         try{
             conexion = conexionBD.getConexion();
             preparedStatement = conexion.prepareStatement(sql);

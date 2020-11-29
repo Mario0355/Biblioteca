@@ -11,19 +11,18 @@ package modelo;
  */
 public class productos {
     private int codigo, cantidad, precio;
-    private String nombre, descripcionProducto, categoria, ubicacion;
+    private String nombre, descripcionProducto, categoria;
 
     public productos() {
     }
     
-    public productos(int codigo, String nombre, int cantidad, int precio, String descripcionProducto, String categoria, String ubicacion) {
+    public productos(int codigo, String nombre, int cantidad, int precio, String descripcionProducto, String categoria) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
         this.descripcionProducto = descripcionProducto;
         this.categoria = categoria;
-        this.ubicacion = ubicacion;
     }
 
     public int getCodigo() {
@@ -72,13 +71,6 @@ public class productos {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
-    }
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
     
 }
